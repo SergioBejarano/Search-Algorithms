@@ -8,7 +8,7 @@ from algorithms.ternarySearch import ternary_search
 
 def main():
 
-    sizes = [2000000 * i for i in range(1, 30)]  # Array sizes
+    sizes = [2000000 * i for i in range(3, 30)]  # Array sizes
     results = {"Size": sizes, "Linear Search": [], "Binary Search": [], "Ternary Search": []}
 
     # Time measurement
@@ -26,6 +26,7 @@ def main():
         results["Ternary Search"].append(ternary_time)
 
     df = pd.DataFrame(results)
+    print(df)
 
     plt.figure(figsize=(10, 6))
     plt.plot(df["Size"], df["Linear Search"], label="Linear Search", marker="o")
