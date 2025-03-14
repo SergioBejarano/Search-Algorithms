@@ -36,3 +36,11 @@ coverage report -m
 ```sh
 python main.py
 ```
+
+Example:
+
+![image](https://github.com/user-attachments/assets/3a34d5e3-2099-4066-a99f-0f4ad2759025)
+
+![image](https://github.com/user-attachments/assets/042ff927-b731-4d12-9c1c-ed881e038eee)
+
+
