@@ -12,4 +12,7 @@ def linear_search(arr, target):
 
     Time Complexity: O(n), where n is the number of elements in the array.
     """
-    pass
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i  # Return the index of the found element
+    return -1  # Return -1 if the target is not found
