@@ -7,8 +7,8 @@ from algorithms.binarySearch import binary_search
 from algorithms.ternarySearch import ternary_search
 
 def main():
-
-    sizes = [2000000 * i for i in range(3, 30)]  # Array sizes
+    # Array sizes
+    sizes = [50000, 100000, 150000, 200000, 250000, 300000, 350000, 600000, 900000]
     results = {"Size": sizes, "Linear Search": [], "Binary Search": [], "Ternary Search": []}
 
     # Time measurement
