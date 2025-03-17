@@ -1,4 +1,4 @@
-def generate_sorted_array(size):
+def get_random_list(size):
     """
     Generates a sorted array of integers.
 
@@ -8,4 +8,4 @@ def generate_sorted_array(size):
     Returns:
         list: Sorted array of integers.
     """
-    return list(range(size))
+    return list(range(1, size+1))

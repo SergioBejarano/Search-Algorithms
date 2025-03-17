@@ -1,43 +1,50 @@
-import matplotlib.pyplot as plt
 import pandas as pd
-from utils.data_generator import generate_sorted_array
-from utils.time_capture import measure_time
-from algorithms.linearSearch import linear_search
-from algorithms.binarySearch import binary_search
-from algorithms.ternarySearch import ternary_search
+import matplotlib.pyplot as plt
+from utils.time_capture import gather_execution_times
 
-def main():
-    # Array sizes
-    sizes = [50000, 100000, 150000, 200000, 250000, 300000, 350000, 600000, 900000]
-    results = {"Size": sizes, "Linear Search": [], "Binary Search": [], "Ternary Search": []}
+def plot_execution_times(df):
+    """
+    Plots execution times of searching algorithms in two separate subplots.
 
-    # Time measurement
-    for size in sizes:
-        print("Processing "+str(size))
-        arr = generate_sorted_array(size)
-        target = size - 1  # Search for the last element (worst case for linear search)
+    :param df: DataFrame with execution times.
+    """
+    plt.figure(figsize=(14, 10))
 
-        linear_time = measure_time(linear_search, arr, target)
-        binary_time = measure_time(binary_search, arr, target)
-        ternary_time = measure_time(ternary_search, arr, target)
-
-        results["Linear Search"].append(linear_time)
-        results["Binary Search"].append(binary_time)
-        results["Ternary Search"].append(ternary_time)
-
-    df = pd.DataFrame(results)
-    print(df)
-
-    plt.figure(figsize=(10, 6))
-    plt.plot(df["Size"], df["Linear Search"], label="Linear Search", marker="o")
-    plt.plot(df["Size"], df["Binary Search"], label="Binary Search", marker="o")
-    plt.plot(df["Size"], df["Ternary Search"], label="Ternary Search", marker="o")
-    plt.xlabel("Array Size")
-    plt.ylabel("Execution Time (seconds)")
-    plt.title("Search Algorithms Performance Comparison")
+    plt.subplot(2, 1, 1)
+    if 'Linear Search' in df.columns:
+        plt.plot(df['Size'], df['Linear Search'], label='Linear Search', color='blue')
+    plt.xlabel('Input Size')
+    plt.ylabel('Execution Time (seconds)')
+    plt.title('Linear Search Execution Time Analysis')
     plt.legend()
     plt.grid(True)
+
+    plt.subplot(2, 1, 2)
+    for algorithm in ['Binary Search', 'Ternary Search']:
+        if algorithm in df.columns:
+            plt.plot(df['Size'], df[algorithm], label=algorithm)
+    plt.xlabel('Input Size')
+    plt.ylabel('Execution Time (seconds)')
+    plt.title('Binary Search and Ternary Search Execution Time Analysis')
+    plt.legend()
+    plt.grid(True)
+
+    plt.tight_layout()
     plt.show()
 
-if __name__ == "__main__":
+def main():
+    # Parameters
+    min_size = 100000
+    max_size = 10000000
+    step = 500000
+    samples_per_size = 80
+
+    df = gather_execution_times(min_size, max_size, step, samples_per_size)
+
+    print("Size | Linear Search | Binary Search | Ternary Search")
+    for _, row in df.iterrows():
+        print(f"{int(row['Size'])}  | {row['Linear Search']:.6f} | {row['Binary Search']:.6f} | {row['Ternary Search']:.6f}")
+    plot_execution_times(df)
+
+if __name__ == '__main__':
     main()
