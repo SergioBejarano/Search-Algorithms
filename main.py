@@ -43,7 +43,7 @@ def main():
 
     print("Size | Linear Search | Binary Search | Ternary Search")
     for _, row in df.iterrows():
-        print(f"{int(row['Size'])}  | {row['Linear Search']:.6f} | {row['Binary Search']:.6f} | {row['Ternary Search']:.6f}")
+        print(f"{int(row['Size'])}  | {row['Linear Search']:.10f} | {row['Binary Search']:.10f} | {row['Ternary Search']:.10f}")
     plot_execution_times(df)
 
 if __name__ == '__main__':
