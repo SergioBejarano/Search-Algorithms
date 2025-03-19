@@ -39,8 +39,8 @@ python main.py
 
 Example:
 
-![image](https://github.com/user-attachments/assets/3a34d5e3-2099-4066-a99f-0f4ad2759025)
+![image](https://github.com/user-attachments/assets/356946bf-4ba2-43f8-b68f-f92e92df7296)
 
-![image](https://github.com/user-attachments/assets/042ff927-b731-4d12-9c1c-ed881e038eee)
+![image](https://github.com/user-attachments/assets/cfcb7e1a-3a14-44d1-a927-9bd2545119b4)
 
 
