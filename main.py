@@ -34,10 +34,10 @@ def plot_execution_times(df):
 
 def main():
     # Parameters
-    min_size = 100000
-    max_size = 10000000
-    step = 500000
-    samples_per_size = 80
+    min_size = 10000
+    max_size = 1000000
+    step = 30000
+    samples_per_size = 100
 
     df = gather_execution_times(min_size, max_size, step, samples_per_size)
 
